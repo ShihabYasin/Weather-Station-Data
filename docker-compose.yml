@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+#    image: weatherdata_api:latest # Need to be removed
+    container_name: weatherdata_api_container
+    build: .
+    depends_on:
+      - redis
+    ports:
+      - '8080:8080'
+    command: gunicorn --workers 3 --worker-connections=100 -b 0.0.0.0:8080 wsgi:app --timeout 0
+
+    volumes:
+      - .:/opt/services/flaskapp/src
+  redis:
+    image: "redis"
+    container_name: redis_container
+
