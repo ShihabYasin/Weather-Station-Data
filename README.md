@@ -1,4 +1,9 @@
-## Project Description:
+## Project Description:   
+
+
+### Used Redis(cache.memoize), Flask, Docker, docker-compose etc.   
+
+
 
 1. Getting METAR code (in JSON) from various [National Weather Service Stations](http://tgftp.nws.noaa.gov/data/observations/metar/stations/).
 2. Cache result (using redis etc.) for 5 min to reduce api hit on actual server.
